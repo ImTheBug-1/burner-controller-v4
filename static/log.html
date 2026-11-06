@@ -1,0 +1,33 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Log Burner</title>
+<link rel="stylesheet" href="style.css"></head><body>
+<header><h1>Burner Control</h1><nav><a href="index.html">Dashboard</a><a class="on" href="log.html">Log</a></nav></header>
+<main>
+
+<section class="panel">
+<h2>Sesi percobaan baru</h2>
+<div class="row">
+<label class="fld ro"><span>Tanggal dan jam</span><input id="tsnow" type="text" readonly value="--"></label>
+<label class="fld"><span>Nama percobaan</span>
+<input id="nm" type="text" maxlength="32" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="contoh: percobaan_1"></label>
+<button id="mk" class="go" disabled>Buat CSV</button>
+</div>
+<p class="hint" id="hint">Huruf, angka, dan underscore saja (maks 32 karakter). Spasi diganti underscore.</p>
+<p class="hint" id="actinfo"></p>
+</section>
+
+<section class="panel">
+<h2>Data percobaan</h2>
+<div class="row">
+<label class="fld"><span>File CSV</span><select id="file"></select></label>
+<button id="resume" title="Tulis data percobaan berikutnya ke file ini">Lanjutkan file ini</button>
+<button id="upd" class="go">Tampilkan grafik</button>
+<a class="btn" id="dl" href="#">Download CSV</a>
+</div>
+<p class="hint" id="fileinfo"></p>
+</section>
+
+<p class="ev" id="info"></p>
+<div class="chart"><canvas id="c"></canvas></div>
+</main>
+<script src="chart.umd.js"></script><script src="log.js"></script></body></html>

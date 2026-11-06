@@ -1,0 +1,60 @@
+:root{--bg:#e8edf1;--pn:#f7f9fa;--ink:#13202b;--mu:#5a6a78;--ln:#c5cfd8;--on:#c8430b;--ok:#1b7f5c;--bad:#b3261e}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.4 "Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink);font-variant-numeric:tabular-nums}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:var(--ink);color:#fff}
+h1{font-size:1.05rem;margin:0;font-weight:600}
+nav a{color:#9fb0bf;text-decoration:none;margin-left:16px;padding-bottom:3px}
+nav a.on{color:#fff;border-bottom:2px solid var(--on)}
+main{max-width:880px;margin:0 auto;padding:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.card{background:var(--pn);border:1px solid var(--ln);border-radius:6px;padding:10px 12px}
+.card span{display:block;color:var(--mu);font-size:.85rem}
+.card b{font-size:1.4rem;font-weight:600}
+.card b.small{font-size:1.05rem;word-break:break-all}
+.big{grid-column:1/-1;display:flex;align-items:baseline;gap:10px}
+.big b{font-size:3.6rem;line-height:1}.big span{display:inline}
+.ON{color:var(--on)}.OFF{color:var(--mu)}.FAULT{color:var(--bad)}
+.ctl{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:16px 0}
+select,button,.btn{font:inherit;padding:10px 16px;border-radius:6px;border:1px solid var(--ln);background:var(--pn);color:var(--ink);text-decoration:none;cursor:pointer}
+:focus-visible{outline:3px solid #0b6e8a;outline-offset:2px}
+.go{background:var(--on);border-color:var(--on);color:#fff}
+.no{background:var(--bad);border-color:var(--bad);color:#fff}
+button:disabled{opacity:.45;cursor:not-allowed}
+.good{color:var(--ok)}
+.alarm{background:var(--bad);color:#fff;padding:10px 18px;font-weight:600;text-align:center}
+.alarm[hidden]{display:none}
+.err.ok{color:var(--ok)}
+.ev{color:var(--mu)}.err{color:var(--bad);min-height:1.4em;margin:0}
+.chart{height:340px;background:var(--pn);border:1px solid var(--ln);border-radius:6px;padding:8px}
+.hold{display:flex;gap:6px;align-items:center}
+.hold input{width:4.5em;font:inherit;padding:10px;border:1px solid var(--ln);border-radius:6px;background:var(--pn);color:var(--ink)}
+.trend{display:none}
+.trend h2{font-size:1.1rem;margin:0 0 4px;font-weight:600}
+.conn{background:var(--bad);color:#fff;padding:2px 8px;border-radius:4px;font-size:.8rem;margin-left:10px;font-weight:400}
+
+/* ---- Halaman Log: panel dan form ---- */
+.panel{background:var(--pn);border:1px solid var(--ln);border-radius:6px;padding:12px 14px;margin:0 0 14px}
+.panel h2{font-size:1.05rem;margin:0 0 10px;font-weight:600}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+.row.end{justify-content:flex-end;align-items:center;margin-top:16px}
+.fld{display:flex;flex-direction:column;gap:4px;flex:1;min-width:180px}
+.fld span{color:var(--mu);font-size:.85rem}
+.fld input,.fld select{font:inherit;width:100%;padding:10px;border:1px solid var(--ln);border-radius:6px;background:var(--pn);color:var(--ink)}
+.fld.ro input{background:var(--bg);color:var(--mu)}
+.hint{color:var(--mu);font-size:.85rem;margin:8px 0 0;min-height:1.2em}
+.hint.bad{color:var(--bad)}.hint.ok{color:var(--ok)}
+#info{margin:0 0 8px}
+
+/* ---- Modal konfirmasi ---- */
+.modal{position:fixed;inset:0;background:rgba(10,20,30,.7);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
+.modal[hidden]{display:none}
+.dlg{background:var(--pn);border-radius:8px;border-top:4px solid var(--bad);max-width:440px;width:100%;padding:18px 20px;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.dlg h2{margin:0 0 8px;font-size:1.15rem;font-weight:600}
+.dlg p{margin:0;color:var(--ink)}
+
+@media (min-width:1000px){
+  main{max-width:1100px}
+  .trend{display:block;margin-top:28px;padding-top:16px;border-top:1px solid var(--ln)}
+  .trend .chart{height:380px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

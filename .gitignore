@@ -1,0 +1,6 @@
+__pycache__/
+mock_logs/
+serial_logs/
+build/
+*.csv
+*.bin

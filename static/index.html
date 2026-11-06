@@ -1,0 +1,52 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Burner Control</title>
+<link rel="stylesheet" href="style.css"></head><body>
+<header><h1>Burner Control <span id="conn" class="conn" hidden>Terputus</span></h1><nav><a class="on" href="index.html">Dashboard</a><a href="log.html">Log</a></nav></header>
+<div id="alarm" class="alarm" role="alert" hidden></div>
+<main><div class="layout"><div class="left">
+<section class="grid">
+<div class="card big"><b id="pv">--</b><span>°C suhu (PV)</span></div>
+<div class="card"><span>Set point</span><b id="sp">--</b></div>
+<div class="card"><span>Fase</span><b id="ph">--</b></div>
+<div class="card"><span>Status burner (dari Omron)</span><b id="st">--</b></div>
+<div class="card"><span>Valve</span><b id="vl">--</b></div>
+<div class="card"><span>Pematik</span><b id="ig">--</b></div>
+<div class="card"><span>Durasi ON</span><b id="on">--</b></div>
+<div class="card"><span>Sisa tahan</span><b id="hl">--</b></div>
+<div class="card"><span>SD card</span><b id="sd">--</b></div>
+<div class="card"><span>Sesi log</span><b id="lg" class="small">--</b></div>
+<div class="card"><span>Alarm Omron</span><b id="al">--</b></div>
+<div class="card"><span>Sumber jam</span><b id="tsrc">--</b></div>
+<div class="card"><span>Modul RTC</span><b id="rtc">--</b></div>
+</section>
+<section class="ctl">
+<label>Set point <select id="sel"></select></label>
+<div class="hold"><span>Tahan</span>
+<input id="hh" type="number" min="0" max="99" value="0" aria-label="jam"><span>jam</span>
+<input id="mm" type="number" min="0" max="59" value="0" aria-label="menit"><span>menit</span></div>
+<button id="start" class="go">Nyalakan burner</button>
+<button id="stop" class="no">Matikan manual</button>
+<button id="ign_btn" title="Picu burner ON 0,3 detik lalu OFF otomatis; sisanya program Omron">Pematik manual</button>
+<button id="tsync" title="Timpa jam RTC dengan jam perangkat ini">Sinkron jam</button>
+</section>
+<p class="err" id="msg"></p><p class="ev" id="raw"></p><p class="ev" id="ev">Event terakhir: --</p>
+</div>
+<aside class="trend">
+<h2>Grafik sesi log</h2>
+<div class="ctl"><button id="upd" class="go">Update grafik</button>
+<a class="btn" id="dl" href="#">Download CSV</a><span class="ev" id="info"></span></div>
+<div class="chart"><canvas id="c"></canvas></div>
+</aside></div></main>
+
+<div id="modal" class="modal" hidden>
+  <div class="dlg" role="alertdialog" aria-modal="true" aria-labelledby="mt" aria-describedby="mb">
+    <h2 id="mt">SD card tidak terbaca</h2>
+    <p id="mb">Burner bisa tetap dijalankan, tapi suhu dan durasi <b>tidak akan dicatat</b> ke CSV untuk percobaan ini. Data yang lewat tidak bisa diambil lagi.</p>
+    <div class="row end">
+      <button id="mno" type="button">Batal</button>
+      <button id="myes" type="button" class="no" disabled>Lanjut tanpa logging (10)</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script></body></html>
